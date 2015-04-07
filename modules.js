@@ -103,6 +103,16 @@ var undef,
             },
 
             /**
+             * Returns dependencies of module
+             * @param {String} name
+             * @returns {String[]|null}
+             */
+            getDependencies = function (name) {
+                var module = modulesStorage[name];
+                return module ? module.decl.deps : null;
+            },
+
+            /**
              * Returns whether the module is defined
              * @param {String} name
              * @returns {Boolean}
@@ -265,12 +275,14 @@ var undef,
             };
 
         return {
-            create     : create,
-            define     : define,
-            require    : require,
-            getState   : getState,
-            isDefined  : isDefined,
-            setOptions : setOptions
+            create          : create,
+            define          : define,
+            require         : require,
+            getState        : getState,
+            getDependencies : getDependencies,
+            isDefined       : isDefined,
+            setOptions      : setOptions,
+            flush           : onNextTick
         };
     },
 
