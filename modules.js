@@ -282,7 +282,8 @@ var undef,
             getDependencies : getDependencies,
             isDefined       : isDefined,
             setOptions      : setOptions,
-            flush           : onNextTick
+            flush           : onNextTick,
+            nextTick        : nextTick
         };
     },
 
